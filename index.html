@@ -102,26 +102,10 @@
       font-weight: 700;
     }
     .hero p.tagline {
-      margin: 0.75rem 0 1.25rem;
+      margin: 0.75rem 0 0;
       max-width: 52ch;
       color: #C9D4E8;
     }
-    .identity {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .identity li {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 999px;
-      padding: 0.3rem 0.95rem;
-      font-size: 0.95rem;
-    }
-    .identity b { color: var(--mint); font-weight: 600; }
 
     /* ---------- Section umum ---------- */
     section { padding-block: 3.5rem; }
@@ -131,8 +115,30 @@
     }
     .lead { color: var(--muted); max-width: 60ch; margin: 0 0 2rem; }
 
-    /* ---------- Tentang ---------- */
-    #tentang p { max-width: 68ch; margin: 0.75rem 0 0; }
+    /* ---------- Tentang (teks + kartu biodata) ---------- */
+    #tentang { text-align: center; }
+    #tentang .lead { margin-inline: auto; margin-bottom: 1.5rem; }
+    #tentang .about-text { max-width: 68ch; margin: 0 auto; }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 800px;
+      margin: 2.25rem auto 0;
+    }
+    .bio-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 14px;
+      padding: 1.25rem 1rem 1.35rem;
+    }
+    .bio-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .bio-card p { margin: 0; }
 
     /* ---------- Galeri ---------- */
     .gallery {
@@ -222,6 +228,9 @@
       .media-grid { grid-template-columns: 1fr; }
       .topbar nav { gap: 0.9rem; font-size: 0.95rem; }
     }
+    @media (max-width: 560px) {
+      .bio-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -239,7 +248,7 @@
     </div>
   </header>
 
-  <!-- ================= HERO: identitas + foto profil ================= -->
+  <!-- ================= HERO: foto profil + sapaan ================= -->
   <main>
     <div class="hero">
       <div class="wrap">
@@ -254,34 +263,56 @@
           title="Foto profil Andhika Prayogi">
 
         <div>
+          <h1>Halo Saya 🙌</h1>
           <h1>Andhika Prayogi</h1>
           <p class="tagline">
             Mahasiswa yang sedang belajar membuat halaman web multimedia dengan HTML.
             Halaman ini berisi galeri foto, audio, dan video favoritku.
           </p>
-
-          <!-- [7] NAMA, NIM, dan KELAS — GANTI dengan datamu -->
-          <ul class="identity">
-            <li><b>Nama</b>&nbsp; Andhika Prayogi</li>
-            <li><b>NIM</b>&nbsp; 241011401829</li>
-            <li><b>Kelas</b>&nbsp; 05TPLM002</li>
-            <li><b>Kampus</b>&nbsp; Universitas Pamulang</li>
-            <li><b>Fakultas</b>&nbsp; S1 Teknik Informatika</li>
-          </ul>
         </div>
       </div>
     </div>
 
-    <!-- ================= TENTANG ================= -->
+    <!-- ================= TENTANG: teks + biodata ================= -->
     <section id="tentang">
       <div class="wrap">
         <h2>Tentang saya</h2>
-        <p>
-          Halo, Saya Andhika Prayogi. Halaman ini saya buat sebagai tugas Pertemuan 4
+        <p class="lead">Informasi singkat mengenai diri saya</p>
+
+        <p class="about-text">
+          Halo, Saya <strong>Andhika Prayogi</strong>. Halaman ini saya buat sebagai tugas Pertemuan 4
           untuk mempraktikkan elemen multimedia di HTML: gambar dengan
           <code>&lt;img&gt;</code>, audio dengan <code>&lt;audio&gt;</code>,
           dan video dengan <code>&lt;video&gt;</code>.
         </p>
+
+        <!-- [7] NAMA, NIM, dan KELAS — GANTI dengan datamu -->
+        <div class="bio-grid">
+          <div class="bio-card">
+            <h3>Nama</h3>
+            <p>Andhika Prayogi</p>
+          </div>
+          <div class="bio-card">
+            <h3>NIM</h3>
+            <p>241011401829</p>
+          </div>
+          <div class="bio-card">
+            <h3>Kelas</h3>
+            <p>05TPLM002</p>
+          </div>
+          <div class="bio-card">
+            <h3>Kampus</h3>
+            <p>Universitas Pamulang</p>
+          </div>
+          <div class="bio-card">
+            <h3>Fakultas</h3>
+            <p>Ilmu Komputer</p>
+          </div>
+          <div class="bio-card">
+            <h3>Program Studi</h3>
+            <p>S1 Teknik Informatika</p>
+          </div>
+        </div>
       </div>
     </section>
 
